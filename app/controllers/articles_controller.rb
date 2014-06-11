@@ -1,4 +1,15 @@
 class ArticlesController < ApplicationController
+
+	http_basic_authentication_with name: 'tww', password: 'ckl', except: [:index, :show]
+
+	def show
+		@article = Article.find(params[:id])
+	end
+
+	def index
+		@articles = Article.all 
+	end
+
 	def new
 		@article = Article.new
 	end
@@ -11,14 +22,6 @@ class ArticlesController < ApplicationController
 		else
 			render 'new'
 		end
-	end
-
-	def show
-		@article = Article.find(params[:id])
-	end
-
-	def index
-		@articles = Article.all 
 	end
 
 	def edit
