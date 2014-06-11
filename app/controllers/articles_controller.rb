@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-	http_basic_authentication_with name: 'tww', password: 'ckl', except: [:index, :show]
+	http_basic_authenticate_with name: 'tww', password: 'ckl', except: [:index, :show]
 
 	def show
 		@article = Article.find(params[:id])
