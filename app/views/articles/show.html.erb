@@ -1,17 +1,27 @@
 <p>
-	<strong>Title:</strong>
-	<%= @article.title %>
+	<h1><%= @article.title %></h1>
 </p>
 
 <p>
-	<strong>Text:</strong>
 	<%= @article.text %>
 </p>
 
+<%= link_to edit_article_path(@article), :class => 'btn btn-primary' do %>
+  	<span class="icon-edit icon-white"></span> Edit
+<% end %>
+
+<%= link_to raw('<i class="icon-trash icon-white"></i>'), article_path(@article), confirm: 'Are you sure?', method: :delete, :class => 'btn btn-danger' %>
+
+
+<br><br>
+
 <% if !@article.comments.nil? %>
-	<h2>Comments</h2>
+	<h3>Comments</h3>
 	<% @article.comments.each do |comment| %>
-		<%= render 'comment', comment: comment %>
+		<blockquote>
+			<p><%= comment.body %></p>
+			<footer><%= comment.commenter %></footer>
+		</blockquote>
 	<% end %>
 <% end %>
 
