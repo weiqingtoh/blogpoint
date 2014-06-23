@@ -20,7 +20,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</a>
-			<a class="brand" href="articles#index">MyBlog</a>
+			<%= link_to("MyBlog", root_url , class: "brand") %>
 			<div class="nav-collapse">
 				<ul class="nav">
 					<li><%= link_to "Articles", articles_path %></li>
@@ -30,6 +30,13 @@
 		</div>
 	</div>
 </div>
+
+<% if notice %>
+ 	<p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+ 	<p class="alert alert-danger"><%= alert %></p>
+<% end %>
 
 <div class="container">
 	<div class="row">
