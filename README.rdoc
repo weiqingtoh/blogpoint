@@ -4,7 +4,9 @@ A simple app for me to learn Ruby on Rails.
 
 To run, the usual commands.
 
-$ bundle install
-$ rake db:seed
-$ rake db:migrate
-$ rails server
+```
+ $ bundle install
+ $ rake db:seed
+ $ rake db:migrate
+ $ rails server
+```
