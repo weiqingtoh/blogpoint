@@ -1,7 +1,6 @@
 Blogpoint::Application.routes.draw do
-  get "welcome/index"
 
-  root :to => 'welcome#index'
+  root :to => 'articles#index'
 
   resources :articles do 
     resources :comments
