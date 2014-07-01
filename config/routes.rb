@@ -1,5 +1,7 @@
 Blogpoint::Application.routes.draw do
 
+  get "users/new"
+
   root :to => 'articles#index'
 
   resources :articles do 
