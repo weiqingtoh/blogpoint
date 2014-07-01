@@ -1,7 +1,7 @@
 Blogpoint::Application.routes.draw do
-  devise_for :users
+  get "welcome/index"
 
-  root :to => 'articles#index'
+  root :to => 'welcome#index'
 
   resources :articles do 
     resources :comments
