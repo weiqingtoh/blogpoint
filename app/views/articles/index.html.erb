@@ -1,19 +1,7 @@
-<h1>Listing articles</h1>
 
-<table class="table">
-	<tr>
-		<th><h2>Title</h2></th>
-		<th><h2>Text</h2></th>
-	</tr>
 
-	<% @articles.each do |article| %>
-		<tr>
-			<td><%= link_to article.title, article_path(article) %></td>
-			<td><%= article.text %></td>
-		</tr>
-	<% end %>
-</table>
-
-<br><br>
+<% @articles.each do |article| %>
+	<%= render partial: "article", locals: {article: article} %>
+<% end %>
 
 <%= link_to raw('<i class="icon-pencil icon-white"></i> New Article'), new_article_path, :class => 'btn btn-primary' %>
