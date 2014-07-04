@@ -20,32 +20,32 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</a>
-			<a class="brand" href="articles#index">MyBlog</a>
+			<a class="brand" href="/">MyBlog</a>
 			<div class="nav-collapse">
 				<ul class="nav">
 					<li><%= link_to "Articles", articles_path %></li>
 					<li><%= link_to "Home", articles_path %></li>
 				</ul>	
-			</div>
-			<div class="nav navbar-nav navbar-right nav-collapse">
-				<% if current_user %>
-					<ul class="nav">
-						<li><%= link_to current_user.email, root_url %></li>
-						<li><%= link_to "Log Out", log_out_path %></li>
-					</ul>
-				<% else %>
-					<ul class="nav">
-						<li><%= link_to "Register", sign_up_path %></li>
-						<li><%= link_to "Log In", log_in_path %></li>
-					</ul>
-				<% end %>
+				<div class="nav navbar-right">
+					<% if current_user %>
+						<ul class="nav">
+							<li><%= link_to current_user.email, control_panel_path %></li>
+							<li><%= link_to "Log Out", log_out_path %></li>
+						</ul>
+					<% else %>
+						<ul class="nav">
+							<li><%= link_to "Register", sign_up_path %></li>
+							<li><%= link_to "Log In", log_in_path %></li>
+						</ul>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
 <% flash.each do |name, msg| %>
-	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+	<%= content_tag :div, msg, id: "flash_#{name}" %>
 <% end %>
 
 <div class="container">

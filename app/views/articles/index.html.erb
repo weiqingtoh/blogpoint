@@ -1,5 +1,9 @@
-<% @articles.each do |article| %>
+<% @articles.reverse.each do |article| %>
 	<%= render partial: "article", locals: {article: article} %>
 <% end %>
 
-<%= link_to raw('<i class="icon-pencil icon-white"></i> New Article'), new_article_path, :class => 'btn btn-primary' %>
+<!--
+<% if :current_user? %>
+	<%= link_to raw('<i class="icon-pencil icon-white"></i> Compose'), 'control_panel?_tab=newarticle', :class => 'btn btn-primary' %>
+<% end %> 
+-->

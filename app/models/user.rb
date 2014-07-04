@@ -3,9 +3,10 @@ class User < ActiveRecord::Base
 	attr_accessor :password
 
 	before_save :encrypt_password
+	after_save :clear_password
 
-	validates_confirmation_of :password
 	validates_presence_of :password, on: :create
+	validates_confirmation_of :password
 	validates_presence_of :email
 	validates_uniqueness_of :email
 
@@ -14,6 +15,10 @@ class User < ActiveRecord::Base
 			self.password_salt = BCrypt::Engine.generate_salt
 			self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
 		end
+	end
+
+	def clear_password
+		self.password = nil
 	end
 
 	def self.authenticate(email, password)

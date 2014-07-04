@@ -1,3 +1,4 @@
 <h2><%= link_to article.title.split(' ').collect {|word| word.capitalize}.join(" "), article_path(article) %></a></h2>
-
-<p><%= article.text %></p>
+<blockquote>
+	<p><%= article.text %></p>
+</blockquote>

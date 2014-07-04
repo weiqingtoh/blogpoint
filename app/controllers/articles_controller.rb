@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-	http_basic_authenticate_with name: 'tww', password: 'ckl', except: [:index, :show]
+	before_filter :authenticate_user, only: [:create, :edit, :update, :destroy]
 
 	def show
 		@article = Article.find(params[:id])

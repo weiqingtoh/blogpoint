@@ -1,15 +1,11 @@
 <%= form_for ([@article, @article.comments.build]) do |f| %>
 	<p>
-		<%= f.label :commenter %><br>
-		<%= f.text_field :commenter %>
+		<%= f.text_field :body, placeholder: "Your Comment", class: "input-long" %>
 	</p>
-
-	<p>
-		<%= f.label :body %><br>
-		<%= f.text_area :body %>
-	</p>
-
-	<p>
-		<%= f.submit %>
-	</p>
+	<div class="input-append">
+		<p>
+			<%= f.text_field :commenter, placeholder: "Your Name", class: "input-short" %>
+			<%= f.submit class: "btn" %>
+		</p>
+	</div>
 <% end %>

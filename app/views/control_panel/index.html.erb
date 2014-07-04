@@ -1,0 +1,16 @@
+<h1>ControlPanel#index</h1>
+
+<ul class="nav nav-tabs">
+  <li class="<%= "active" if @tab == "NewArticle" %>">
+    <a href="<%= control_panel_path %>?_tab=newarticle">New Article</a>
+  </li>
+  <li class="<%= "active" if @tab == "DeleteArticle" %>">
+    <a href="<%= control_panel_path %>?_tab=sidebar">All Articles</a>
+  </li>
+</ul>
+
+<% if @tab == "NewArticle" %>
+    <%= render partial: "articles/form" %>
+<% else %>
+    <%= render partial: "articles/form" %>
+<% end %>
