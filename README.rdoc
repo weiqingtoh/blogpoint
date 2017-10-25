@@ -1,6 +1,6 @@
 == Blogpoint
 
-A simple app for me to learn Ruby on Rails.
+A simple app for me to learn Ruby on Rails version 4.
 
 To run, the usual commands.
 
